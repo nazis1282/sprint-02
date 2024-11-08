@@ -1,0 +1,61 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Projet :</h2>
+    </div>
+    <form>
+        <!-- ID Projet -->
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-6">
+                <label for="idProjet">ID Projet</label>
+                <input type="text" [(ngModel)]="newProjet.idProjet" name="idProjet" class="form-control" id="idProjet">
+            </div>
+        </div>
+
+        <!-- Nom Projet -->
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-6">
+                <label for="nomProjet">Nom Projet</label>
+                <input type="text" [(ngModel)]="newProjet.nomProjet" name="nomProjet" class="form-control" id="nomProjet">
+            </div>
+        </div>
+
+        <!-- Manager -->
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-6">
+                <label for="manager">Manager</label>
+                <input type="text" [(ngModel)]="newProjet.manager" name="manager" class="form-control" id="manager">
+            </div>
+        </div>
+
+        <!-- Prix Projet -->
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-6">
+                <label for="cout">Prix Projet</label>
+                <input type="number" [(ngModel)]="newProjet.cout" name="cout" class="form-control" id="cout">
+            </div>
+        </div>
+
+        <!-- Date création -->
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-6">
+                <label for="startdate">Date Création</label>
+                <input type="date" [(ngModel)]="newProjet.startDate" name="startdate" class="form-control" id="startdate">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-6">
+                <label>Domaines</label>
+                <select class="form-control form-control-lg" id="idDom" name="idDom" [(ngModel)]="newIdDom">
+           <option *ngFor="let dom of domaines" [value]="dom.idDom" >
+           {{dom.nomDom}}
+          </option>
+        </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button type="submit" (click)="addProjet()" class="btn btn-success">Ajouter</button>
+            </div>
+        </div>
+    </form>
+</div>

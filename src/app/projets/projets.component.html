@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Manager</th>
+                        <th>Cout</th>
+                        <th>Start Date</th>
+                        <th>Domaine</th>
+                        <th *ngIf="authService.isAdmin()">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let projet of projets">
+                        <td>{{ projet.idProjet }}</td>
+                        <td>{{ projet.nomProjet }}</td>
+                        <td>{{ projet.manager }}</td>
+                        <td>{{ projet.cout }}</td>
+                        <td>{{ projet.startDate | date:'dd/MM/yyyy' }}</td>
+                        <td>{{projet.domaine.nomDom}}
+
+                        </td> <a a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateProjet', projet.idProjet]">Modifier</a>
+                        <a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

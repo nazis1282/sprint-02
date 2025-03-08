@@ -7,12 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { AddProjetsComponent } from './add-projets/add-projets.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProjetComponent } from './update-projet/update-projet.component';
 import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { TokenInterceptor } from './services/token.interceptor';
+import { RechercheParDomaineComponent } from './recherche-par-domaine/recherche-par-domaine.component';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,18 @@ import { TokenInterceptor } from './services/token.interceptor';
     AddProjetsComponent,
     UpdateProjetComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    RechercheParDomaineComponent,
+    RechercheParNomComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptor,

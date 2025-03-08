@@ -91,5 +91,10 @@ let httpHeaders = new HttpHeaders({"Authorization":jwt})
     return this.domaines.find(dom => dom.idDom == id)!;
   }
 
+  rechercherParDomaine(idDom: number): Observable<Projet[]> {
+    const url = `${this.apiURL}/projsdom/${idDom}`;
+    return this.http.get<Projet[]>(url);
+    }
+
 }
 

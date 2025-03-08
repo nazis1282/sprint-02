@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Domaines </label>
+        <select class="form-control form-control-lg" id="idDom" name="idom" [(ngModel)]="IdDomaine" (change)="onChange()">
+    <option *ngFor="let dom of domaines" value="{{dom.idDom}}">
+    {{dom.nomDom}}
+     </option>
+    </select>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-body">
             <table class="table table-striped">
@@ -10,7 +18,6 @@
                         <th>Cout</th>
                         <th>Start Date</th>
                         <th>Domaine</th>
-                        <th *ngIf="authService.isAdmin()">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,9 +28,6 @@
                         <td>{{ projet.cout }}</td>
                         <td>{{ projet.startDate | date:'dd/MM/yyyy' }}</td>
                         <td>{{projet.domaine.nomDom}}
-
-                        </td> <a a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateProjet', projet.idProjet]">Modifier</a>
-                        <a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a>
 
                     </tr>
                 </tbody>
